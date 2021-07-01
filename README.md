@@ -1,3 +1,7 @@
+Thanks for the logo: 
+<a href="https://iconscout.com/icons/corona" target="_blank">Corona Icon</a> by <a href="https://iconscout.com/contributors/laura-reen">Laura Reen</a> on <a href="https://iconscout.com">Iconscout</a>
+Imagine de <a href="https://pixabay.com/ro/users/iximus-2352783/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5430811">iXimus</a> de la <a href="https://pixabay.com/ro/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=5430811">Pixabay</a>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
