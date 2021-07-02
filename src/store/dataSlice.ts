@@ -10,7 +10,7 @@ type DataState = {
 
 // Define the initial state 
 const initialState: DataState = {
-  step: '14', // days
+  step: '28', // days
   selectedChartType: 'linear',
   selectedIndices: []
 }

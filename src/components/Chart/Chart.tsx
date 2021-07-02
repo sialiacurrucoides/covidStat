@@ -25,8 +25,21 @@ const Chart = () => {
     useEffect(() => {
         if (!!data && data.length > 0){
             const from = data.length - Number(step);
-            setDataToDisplay(data?.slice(from, from + Number(step)));
-            console.log(from, data?.slice(from,from + 2));
+            const dataSlice = data?.slice(from - 1, from + Number(step) + 1);
+
+            
+            // transform data to plot daily change
+            // we need an array one element longer to be able to subtract a previous value
+            const transformedData = dataSlice.slice(1, Number(step) + 1).map((data, inx) => ({
+                ...data,
+                deceased: data.deceased - dataSlice[inx]['deceased'],
+                infected: data.infected - dataSlice[inx]['infected'],
+                recovered: data.recovered - dataSlice[inx]['recovered'],
+                tested: data.tested - dataSlice[inx]['tested']
+            }))
+            
+            setDataToDisplay(transformedData);
+ 
         }
 
     }, [data, indices, step]);
