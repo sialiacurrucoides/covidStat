@@ -3,7 +3,7 @@ import { format, parseISO } from 'date-fns';
 import type { Data } from '../Chart';
 import { lineColors } from '../../../constants/constants';
 
-const Linear: React.FC<{dataToDisplay: Data[] | undefined, indices: string[]}> = ({dataToDisplay, indices}) => {
+const LineCh: React.FC<{dataToDisplay: Data[] | undefined, indices: string[]}> = ({dataToDisplay, indices}) => {
     
 
     return (
@@ -33,4 +33,4 @@ const Linear: React.FC<{dataToDisplay: Data[] | undefined, indices: string[]}> =
     );
 }
 
-export default Linear;
+export default LineCh;

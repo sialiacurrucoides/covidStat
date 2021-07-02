@@ -3,7 +3,10 @@ import { useEffect, useState } from 'react';
 import styles from './Chart.module.scss';
 import useDataQuery from '../../hooks/useDataQuery';
 import { useAppSelector } from '../../hooks/reduxHooks';
-import Linear from './Linear/Linear';
+import LineCh from './Line/Linear';
+import AreaCh from './Area/AreaChart';
+import BarCh from './Bar/BarChart';
+import ScatterPlot from './Scatter/ScatterPlot';
 
 export type Data = {
     infected: number,
@@ -13,14 +16,37 @@ export type Data = {
     tested: number,
     sourceUrl: string,
     lastUpdatedAtApify: string,
-    readMe: string
+    readMe: string,
+    [key: string]: string | number
 };
 
 const Chart = () => {
     const { data, isLoading, error } = useDataQuery();
     const indices = useAppSelector(state => state.data.selectedIndices);
     const step = useAppSelector(state => state.data.step);
+    const chartType = useAppSelector(state => state.data.selectedChartType);
     const [ dataToDisplay, setDataToDisplay ] = useState<Data[] | undefined>([]);
+
+    const CurrentChart: React.FC = () => {
+        
+        switch(chartType) { 
+            case 'area': { 
+               return <AreaCh dataToDisplay={dataToDisplay} indices={indices}/>
+            } 
+            case 'bar': { 
+                return <BarCh dataToDisplay={dataToDisplay} indices={indices}/>
+            } 
+            case 'line': { 
+                return <LineCh dataToDisplay={dataToDisplay} indices={indices}/>
+             } 
+             case 'scatter': { 
+                return <ScatterPlot dataToDisplay={dataToDisplay} indices={indices}/>
+             } 
+            default: { 
+                return <AreaCh dataToDisplay={dataToDisplay} indices={indices}/>
+            } 
+         } 
+    };
 
     useEffect(() => {
         if (!!data && data.length > 0){
@@ -48,7 +74,7 @@ const Chart = () => {
     return (
         <div className={styles.chartArea}>
             {isLoading && "loading..."}
-            {!!dataToDisplay && dataToDisplay?.length > 0 && <Linear dataToDisplay={dataToDisplay} indices={indices} />}
+            {!!dataToDisplay && dataToDisplay?.length > 0 && <CurrentChart />}
             {!!error && "An error occured, please try again later."}
         </div>
     );

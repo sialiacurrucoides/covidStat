@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import styles from './Controls.module.scss';
 import { useAppSelector, useAppDispatch } from '../../hooks/reduxHooks';
 import { setStep } from '../../store/dataSlice';
+import SelectChart from './SelectChart/SelectChart';
+import { Input } from '@material-ui/core';
 
 const Controls: React.FC = () => {
 
@@ -21,10 +23,16 @@ const Controls: React.FC = () => {
         <div className={styles.controls}>
             <div>
                 <span>Step size (x-axis): </span>
-                <input type="text" value={displayedStep} onChange={handleChange}/>
+                <Input
+                    style={{width: "40px"}}
+                    id="standard-basic"
+                    type="number"
+                    value={displayedStep}
+                    onChange={handleChange}
+                    />
                 <span> days</span>
             </div>
-            <div>select chart type</div>
+            <SelectChart />
         </div>
     );
 };
