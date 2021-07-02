@@ -17,6 +17,9 @@
 
     & li {
         line-height: 1.6;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
 
         &:before {
             content: "✹ ";
@@ -27,5 +30,6 @@
         color: variables.$primary-dark;
         font-weight: 500;
         padding: 0.5rem;
+        margin-left: 1rem;
     }
 }

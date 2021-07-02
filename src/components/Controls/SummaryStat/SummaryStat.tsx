@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAppSelector } from '../../../hooks/reduxHooks';
 import styles from './SummaryStat.module.scss';
+import Spinner from '../../Spinner/Spinner';
 
 const SummaryStat: React.FC = () => {
     const summary = useAppSelector(state => state.data.summaryStat);
@@ -9,11 +10,11 @@ const SummaryStat: React.FC = () => {
         <div className={styles.summary}>
             <p>Latest cummulative data:</p>
             <ul>
-                <li>Deceased: <span>{summary.deceased}</span></li>
-                <li>Infected: <span>{summary.infected}</span></li>
-                <li>Active Infected: <span>{summary.activeInfected}</span></li>
-                <li>Recovered: <span>{summary.recovered}</span></li>
-                <li>Tested: <span>{summary.tested}</span></li>
+                <li>Deceased: <span>{summary.deceased || <Spinner size={16} width={"16px"}/>}</span></li>
+                <li>Infected: <span>{summary.infected || <Spinner size={16}/>}</span></li>
+                <li>Active Infected: <span>{summary.activeInfected || <Spinner size={16}/>}</span></li>
+                <li>Recovered: <span>{summary.recovered || <Spinner size={16}/>}</span></li>
+                <li>Tested: <span>{summary.tested || <Spinner size={16}/>}</span></li>
             </ul>
         </div>
     );

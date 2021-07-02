@@ -8,6 +8,7 @@ import LineCh from './Line/Linear';
 import AreaCh from './Area/AreaChart';
 import BarCh from './Bar/BarChart';
 import ScatterPlot from './Scatter/ScatterPlot';
+import Spinner from '../Spinner/Spinner';
 
 export type Data = {
     infected: number,
@@ -83,7 +84,7 @@ const Chart = () => {
 
     return (
         <div className={styles.chartArea}>
-            {isLoading && "loading..."}
+            {isLoading && <div className={styles.spinnerContainer}><Spinner width={"40px"}/></div>}
             {!!dataToDisplay && dataToDisplay?.length > 0 && <CurrentChart />}
             {!!error && "An error occured, please try again later."}
         </div>
