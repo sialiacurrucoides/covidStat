@@ -3,6 +3,7 @@ import styles from './Controls.module.scss';
 import { useAppSelector, useAppDispatch } from '../../hooks/reduxHooks';
 import { setStep } from '../../store/dataSlice';
 import SelectChart from './SelectChart/SelectChart';
+import SummaryStat from './SummaryStat/SummaryStat';
 import { Input } from '@material-ui/core';
 
 const Controls: React.FC = () => {
@@ -21,18 +22,21 @@ const Controls: React.FC = () => {
 
     return (
         <div className={styles.controls}>
-            <div>
-                <span>Step size (x-axis): </span>
-                <Input
-                    style={{width: "40px"}}
-                    id="standard-basic"
-                    type="number"
-                    value={displayedStep}
-                    onChange={handleChange}
-                    />
-                <span> days</span>
+            <div className={styles.realControls}>
+                <div>
+                    <span>Step size (x-axis): </span>
+                    <Input
+                        className={styles.input}
+                        id="standard-basic"
+                        type="number"
+                        value={displayedStep}
+                        onChange={handleChange}
+                        />
+                    <span> days</span>
+                </div>
+                <SelectChart />
             </div>
-            <SelectChart />
+            <SummaryStat />
         </div>
     );
 };

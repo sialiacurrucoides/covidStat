@@ -1,3 +1,5 @@
+@use './scss/variables';
+
 .App {
   text-align: center;
   position: relative;
@@ -5,5 +7,6 @@
   font-family: 'Roboto', sans-serif;
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
+  color: variables.$dark;
 }
 

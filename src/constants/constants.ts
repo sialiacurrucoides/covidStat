@@ -7,7 +7,7 @@ export const covidIndices = new Set([
     'custom'
 ]);
 
-export const lineColors = ["#000000", "#BF1363", "#39A6A3", "#555555", "#2B807d", "#DEEEEA"];
+export const lineColors = ["#BF1363", "#39A6A3","#000000", "#555555", "#2B807d", "#DEEEEA"];
 
 export type ChartTypesT = {
     area: "Area Chart",

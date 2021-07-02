@@ -2,17 +2,33 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from './store';
 import { covidIndices } from '../constants/constants';
 
+type SummaryStat = {
+  deceased: number | null,
+  infected: number | null,
+  recovered: number | null,
+  tested: number | null,
+  activeInfected: number | null
+}
+
 type DataState = {
     step: string,
     selectedChartType: string,
-    selectedIndices: string[]
+    selectedIndices: string[],
+    summaryStat: SummaryStat
 }
 
 // Define the initial state 
 const initialState: DataState = {
   step: '14', // days
   selectedChartType: 'area',
-  selectedIndices: []
+  selectedIndices: [],
+  summaryStat: {
+    deceased: null,
+    infected: null,
+    recovered: null,
+    tested: null,
+    activeInfected: null
+  }
 }
 
 export const dataSlice = createSlice({
@@ -26,6 +42,9 @@ export const dataSlice = createSlice({
     setSelectedChartType: (state, action: PayloadAction<string>) => {
         state.selectedChartType = action.payload;
     },
+    setSummaryStat: (state, action: PayloadAction<SummaryStat>) => {
+      state.summaryStat = action.payload
+    },
     addSelectedIndex: (state, action: PayloadAction<string>) => {
         if (covidIndices.has(action.payload)){
             state.selectedIndices = [...state.selectedIndices, action.payload];
@@ -38,7 +57,7 @@ export const dataSlice = createSlice({
   },
 })
 
-export const { setStep, setSelectedChartType, addSelectedIndex, removeSelectedIndex } = dataSlice.actions;
+export const { setStep, setSelectedChartType, setSummaryStat, addSelectedIndex, removeSelectedIndex } = dataSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectCount = (state: RootState) => state.data

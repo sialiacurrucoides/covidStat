@@ -2,7 +2,8 @@
 import { useEffect, useState } from 'react';
 import styles from './Chart.module.scss';
 import useDataQuery from '../../hooks/useDataQuery';
-import { useAppSelector } from '../../hooks/reduxHooks';
+import { useAppSelector, useAppDispatch } from '../../hooks/reduxHooks';
+import { setSummaryStat } from '../../store/dataSlice';
 import LineCh from './Line/Linear';
 import AreaCh from './Area/AreaChart';
 import BarCh from './Bar/BarChart';
@@ -10,6 +11,7 @@ import ScatterPlot from './Scatter/ScatterPlot';
 
 export type Data = {
     infected: number,
+    activeInfected: number,
     deceased: number,
     recovered: number,
     quarantined: number,
@@ -26,6 +28,7 @@ const Chart = () => {
     const step = useAppSelector(state => state.data.step);
     const chartType = useAppSelector(state => state.data.selectedChartType);
     const [ dataToDisplay, setDataToDisplay ] = useState<Data[] | undefined>([]);
+    const dispatch = useAppDispatch();
 
     const CurrentChart: React.FC = () => {
         
@@ -53,6 +56,14 @@ const Chart = () => {
             const from = data.length - Number(step);
             const dataSlice = data?.slice(from - 1, from + Number(step) + 1);
 
+            const latest = dataSlice[dataSlice.length - 1];console.log("latest", latest);
+            dispatch(setSummaryStat({
+                deceased: latest.deceased,
+                infected: latest.infected,
+                recovered: latest.recovered,
+                tested: latest.recovered,
+                activeInfected: latest.activeInfected || null
+            }));
             
             // transform data to plot daily change
             // we need an array one element longer to be able to subtract a previous value
@@ -65,10 +76,9 @@ const Chart = () => {
             }))
             
             setDataToDisplay(transformedData);
- 
         }
 
-    }, [data, indices, step]);
+    }, [data, indices, step, dispatch]);
 
 
     return (
