@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styles from './Chart.module.scss';
 import useDataQuery from '../../hooks/useDataQuery';
 import { useAppSelector, useAppDispatch } from '../../hooks/reduxHooks';
@@ -9,6 +9,7 @@ import AreaCh from './Area/AreaChart';
 import BarCh from './Bar/BarChart';
 import ScatterPlot from './Scatter/ScatterPlot';
 import Spinner from '../Spinner/Spinner';
+import DiscreteSlider from '../Slider/Slider';
 
 export type Data = {
     infected: number,
@@ -28,8 +29,11 @@ const Chart = () => {
     const indices = useAppSelector(state => state.data.selectedIndices);
     const step = useAppSelector(state => state.data.step);
     const chartType = useAppSelector(state => state.data.selectedChartType);
+    const sliderPosition = useAppSelector(state => state.data.sliderPosition);
     const [ dataToDisplay, setDataToDisplay ] = useState<Data[] | undefined>([]);
     const dispatch = useAppDispatch();
+    const sliderStep = useRef(0.5);
+
 
     const CurrentChart: React.FC = () => {
         
@@ -54,10 +58,10 @@ const Chart = () => {
 
     useEffect(() => {
         if (!!data && data.length > 0){
-            const from = data.length - Number(step);
-            const dataSlice = data?.slice(from - 1, from + Number(step) + 1);
+            const from = Math.floor((data.length - Number(step) - 1)*sliderPosition);
+            const dataSlice = data?.slice(from, from + Number(step) + 1);
 
-            const latest = dataSlice[dataSlice.length - 1];console.log("latest", latest);
+            const latest = dataSlice[0];
             dispatch(setSummaryStat({
                 deceased: latest.deceased,
                 infected: latest.infected,
@@ -77,15 +81,19 @@ const Chart = () => {
             }))
             
             setDataToDisplay(transformedData);
+            sliderStep.current = Math.floor(1/(data.length / Number(step))*100)/100;
         }
 
-    }, [data, indices, step, dispatch]);
+    }, [data, indices, step, dispatch, sliderPosition]);
 
 
     return (
         <div className={styles.chartArea}>
             {isLoading && <div className={styles.spinnerContainer}><Spinner width={"40px"}/></div>}
-            {!!dataToDisplay && dataToDisplay?.length > 0 && <CurrentChart />}
+            {!!dataToDisplay && dataToDisplay?.length > 0 && <div className={styles.chartAndSlider}>
+                { <CurrentChart />}
+                {<DiscreteSlider step={sliderStep.current}/>}
+            </div>}
             {!!error && "An error occured, please try again later."}
         </div>
     );

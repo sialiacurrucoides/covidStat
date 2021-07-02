@@ -20,14 +20,15 @@ const AreaCh: React.FC<{dataToDisplay: Data[] | undefined, indices: string[]}> =
           }}
         >
             {lineColors.map((lineColor,inx) => <defs>
-                <linearGradient id={`color${inx}`} x1="0" y1="0" x2="0" y2="1">
+                <linearGradient id={`color${inx}`} x1="0" y1="0" x2="0" y2="1" key={`lG${inx}`}>
                 <stop offset="5%" stopColor={lineColor} stopOpacity={0.8}/>
                 <stop offset="95%" stopColor={lineColor} stopOpacity={0}/>
                 </linearGradient>
             </defs>)}
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="lastUpdatedAtSource" minTickGap={28} tickFormatter={str => {
-            const date = parseISO(str);
+            const date = parseISO(str); console.log("date", date);
+            if (Number.isNaN(date.getTime())) return "??/??";
             return format(date, "MMM/dd");
           }}/>
           <YAxis />
