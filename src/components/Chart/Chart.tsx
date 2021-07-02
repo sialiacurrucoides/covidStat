@@ -62,7 +62,7 @@ const Chart = () => {
                 deceased: latest.deceased,
                 infected: latest.infected,
                 recovered: latest.recovered,
-                tested: latest.recovered,
+                tested: latest.tested,
                 activeInfected: latest.activeInfected || null
             }));
             
