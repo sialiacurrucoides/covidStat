@@ -3,7 +3,11 @@ import { format, parseISO } from 'date-fns';
 import type { Data } from '../Chart';
 import { lineColors } from '../../../constants/constants';
 
-const LineCh: React.FC<{dataToDisplay: Data[] | undefined, indices: string[]}> = ({dataToDisplay, indices}) => {
+const LineCh: React.FC<{
+  dataToDisplay: Data[] | undefined, 
+  indices: string[],
+  customName: string
+}> = ({dataToDisplay, indices, customName}) => {
     
 
     return (
@@ -27,7 +31,12 @@ const LineCh: React.FC<{dataToDisplay: Data[] | undefined, indices: string[]}> =
           <YAxis />
           <Tooltip />
           <Legend layout="horizontal" verticalAlign="top" align="center"/>
-          {indices.map((index, inx) => <Line type="monotone" key={index} dataKey={index} stroke={lineColors[inx]} />)}
+          {indices.map((index, inx) => <Line 
+          type="monotone" 
+          name={index === 'custom' ? customName : index}
+          key={index} 
+          dataKey={index} 
+          stroke={lineColors[inx]} />)}
         </LineChart>
       </ResponsiveContainer>
     );

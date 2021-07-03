@@ -3,7 +3,11 @@ import { format, parseISO } from 'date-fns';
 import type { Data } from '../Chart';
 import { lineColors } from '../../../constants/constants';
 
-const BarCh: React.FC<{dataToDisplay: Data[] | undefined, indices: string[]}> = ({dataToDisplay, indices}) => {
+const BarCh: React.FC<{
+  dataToDisplay: Data[] | undefined, 
+  indices: string[],
+  customName: string
+}> = ({dataToDisplay, indices, customName}) => {
     
 
     return (
@@ -29,6 +33,7 @@ const BarCh: React.FC<{dataToDisplay: Data[] | undefined, indices: string[]}> = 
           <Tooltip />
           <Legend layout="horizontal" verticalAlign="top" align="center"/>
           {indices.map((index, inx) => <Bar 
+          name={index === 'custom' ? customName : index}
           key={index} 
           dataKey={index} 
           fill={lineColors[inx]}

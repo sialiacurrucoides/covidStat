@@ -42,8 +42,8 @@ const CustomSelection:React.FC<{onClose: () => void}> = ({onClose}) => {
     const operatorOptions = [
         {value: 'plus', label: '+'},
         {value: 'minus', label: '-'},
-        {value: 'divide', label: '/'},
-        {value: 'multiply', label: '*'}
+        {value: 'divided by', label: '/'},
+        {value: 'multiplied by', label: '*'}
     ];
 
 

@@ -30,7 +30,7 @@ const dataSlice = [{
 describe("calcCustomData", () => {
 
     test('should provide a divided by b', () => {
-        const actual = calcCustomData(dataSlice, variable1, variable2, 'divide');
+        const actual = calcCustomData(dataSlice, variable1, variable2, 'divided by');
         const expected = [{
             infected: 100,
             activeInfected: 560,

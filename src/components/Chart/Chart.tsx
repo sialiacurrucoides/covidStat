@@ -1,5 +1,5 @@
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
 import styles from './Chart.module.scss';
 import useDataQuery from '../../hooks/useDataQuery';
 import { useAppSelector, useAppDispatch } from '../../hooks/reduxHooks';
@@ -36,25 +36,28 @@ const Chart = () => {
     const { variable1, variable2, operator } = useAppSelector(state => state.data.custom);
     const dispatch = useAppDispatch();
     const sliderStep = useRef(0.5);
+    const customName = useMemo(() => {
+        return `${variable1} ${operator} ${variable2}`
+    }, [variable1, variable2, operator])
 
 
     const CurrentChart: React.FC = () => {
         
         switch(chartType) { 
             case 'area': { 
-               return <AreaCh dataToDisplay={dataToDisplay} indices={indices}/>
+               return <AreaCh dataToDisplay={dataToDisplay} indices={indices} customName={customName}/>
             } 
             case 'bar': { 
-                return <BarCh dataToDisplay={dataToDisplay} indices={indices}/>
+                return <BarCh dataToDisplay={dataToDisplay} indices={indices} customName={customName}/>
             } 
             case 'line': { 
-                return <LineCh dataToDisplay={dataToDisplay} indices={indices}/>
+                return <LineCh dataToDisplay={dataToDisplay} indices={indices} customName={customName}/>
              } 
              case 'scatter': { 
-                return <ScatterPlot dataToDisplay={dataToDisplay} indices={indices}/>
+                return <ScatterPlot dataToDisplay={dataToDisplay} indices={indices} customName={customName}/>
              } 
             default: { 
-                return <AreaCh dataToDisplay={dataToDisplay} indices={indices}/>
+                return <AreaCh dataToDisplay={dataToDisplay} indices={indices} customName={customName}/>
             } 
          } 
     };
