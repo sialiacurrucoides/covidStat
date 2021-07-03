@@ -13,7 +13,6 @@ const AreaCh: React.FC<{
     return (
         <ResponsiveContainer width="100%" height="100%">
         <AreaChart
-          width={500}
           height={300}
           data={dataToDisplay}
           margin={{
@@ -23,8 +22,8 @@ const AreaCh: React.FC<{
             bottom: 5,
           }}
         >
-            {lineColors.map((lineColor,inx) => <defs>
-                <linearGradient id={`color${inx}`} x1="0" y1="0" x2="0" y2="1" key={`lG${inx}`}>
+            {lineColors.map((lineColor,inx) => <defs key={`lG${inx}`}>
+                <linearGradient id={`color${inx}`} x1="0" y1="0" x2="0" y2="1" >
                 <stop offset="5%" stopColor={lineColor} stopOpacity={0.8}/>
                 <stop offset="95%" stopColor={lineColor} stopOpacity={0}/>
                 </linearGradient>

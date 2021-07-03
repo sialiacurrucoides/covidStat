@@ -5,7 +5,7 @@ import { setSliderPosition } from '../../store/dataSlice';
 
 const useStyles = makeStyles({
     root: {
-      width: 500,
+      width: '100%',
       paddingLeft: '1rem'
     },
   });

@@ -8,5 +8,11 @@
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
   color: variables.$dark;
+  font-size: 16px;
 }
 
+@media screen and (max-width: 575px){
+  .App {
+    font-size: 14px;
+  }
+}

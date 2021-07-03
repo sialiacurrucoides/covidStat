@@ -13,8 +13,8 @@ const Container: React.FC = () => {
             <Heading />
             <IndexSelection />
             <div className={styles.displayData}>
-                <Controls />
                 <Chart />
+                <Controls />
             </div>
         </div>
         <Virus className={styles.bigVirus} />

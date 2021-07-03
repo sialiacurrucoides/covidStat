@@ -1,5 +1,5 @@
 .container {
-    min-width: 320px;
+    width: 90vw;
     max-width: 1000px;
     min-height: 100vh;
     position: relative;
@@ -14,7 +14,7 @@
 
 @media screen and (max-width: 1016px) {
     .container {
-        margin: 0.5rem;
+        padding-left: 0.5rem;
     }
 }
 
@@ -36,10 +36,24 @@
     z-index: -1;
 }
 
+@media screen and (max-width: 575px){
+    .bigVirus {
+        width: 90vw;
+    }
+}
+
 .displayData {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
+}
+
+@media screen and (max-width: 850px) {
+    .displayData {
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
 }
