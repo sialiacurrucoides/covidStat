@@ -10,12 +10,19 @@ type SummaryStat = {
   activeInfected: number | null
 }
 
+type CustomSelection = {
+  variable1: string,
+  variable2: string,
+  operator: string
+}
+
 type DataState = {
     step: string,
     selectedChartType: string,
     selectedIndices: string[],
     sliderPosition: number,
-    summaryStat: SummaryStat
+    summaryStat: SummaryStat,
+    custom: CustomSelection
 }
 
 // Define the initial state 
@@ -30,6 +37,11 @@ const initialState: DataState = {
     recovered: null,
     tested: null,
     activeInfected: null
+  },
+  custom: {
+    variable1: '',
+    variable2: '',
+    operator: '-'
   }
 }
 
@@ -57,12 +69,23 @@ export const dataSlice = createSlice({
     },
     removeSelectedIndex: (state, action: PayloadAction<string>) => {
       state.selectedIndices = state.selectedIndices.filter(inx => inx !== action.payload);
+    },
+    setCustomParams: (state, action: PayloadAction<CustomSelection>) => {
+      state.custom = action.payload;
     }
 
   },
 })
 
-export const { setStep, setSelectedChartType, setSliderPosition, setSummaryStat, addSelectedIndex, removeSelectedIndex } = dataSlice.actions;
+export const { 
+  setStep, 
+  setSelectedChartType, 
+  setSliderPosition, 
+  setSummaryStat, 
+  addSelectedIndex, 
+  removeSelectedIndex,
+  setCustomParams
+ } = dataSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectCount = (state: RootState) => state.data

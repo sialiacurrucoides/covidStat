@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppSelector } from '../../../hooks/reduxHooks';
 import styles from './SummaryStat.module.scss';
-import Spinner from '../../Spinner/Spinner';
+import Spinner from '../../UI/Spinner/Spinner';
 
 const SummaryStat: React.FC = () => {
     const summary = useAppSelector(state => state.data.summaryStat);

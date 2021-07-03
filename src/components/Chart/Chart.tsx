@@ -8,8 +8,9 @@ import LineCh from './Line/Linear';
 import AreaCh from './Area/AreaChart';
 import BarCh from './Bar/BarChart';
 import ScatterPlot from './Scatter/ScatterPlot';
-import Spinner from '../Spinner/Spinner';
+import Spinner from '../UI/Spinner/Spinner';
 import DiscreteSlider from '../Slider/Slider';
+import calcCustomData from '../../utils/calcCustomData';
 
 export type Data = {
     infected: number,
@@ -21,7 +22,8 @@ export type Data = {
     sourceUrl: string,
     lastUpdatedAtApify: string,
     readMe: string,
-    [key: string]: string | number
+    custom?: number,
+    [key: string]: string | number | undefined
 };
 
 const Chart = () => {
@@ -31,6 +33,7 @@ const Chart = () => {
     const chartType = useAppSelector(state => state.data.selectedChartType);
     const sliderPosition = useAppSelector(state => state.data.sliderPosition);
     const [ dataToDisplay, setDataToDisplay ] = useState<Data[] | undefined>([]);
+    const { variable1, variable2, operator } = useAppSelector(state => state.data.custom);
     const dispatch = useAppDispatch();
     const sliderStep = useRef(0.5);
 
@@ -72,7 +75,7 @@ const Chart = () => {
             
             // transform data to plot daily change
             // we need an array one element longer to be able to subtract a previous value
-            const transformedData = dataSlice.slice(1, Number(step) + 1).map((data, inx) => ({
+            const transformedData = calcCustomData(dataSlice, variable1, variable2, operator).slice(1, Number(step) + 1).map((data, inx) => ({
                 ...data,
                 deceased: data.deceased - dataSlice[inx]['deceased'],
                 infected: data.infected - dataSlice[inx]['infected'],
@@ -84,7 +87,7 @@ const Chart = () => {
             sliderStep.current = Math.floor(1/(data.length / Number(step))*100)/100;
         }
 
-    }, [data, indices, step, dispatch, sliderPosition]);
+    }, [data, indices, step, dispatch, sliderPosition, variable1, variable2, operator]);
 
 
     return (

@@ -27,7 +27,7 @@ const AreaCh: React.FC<{dataToDisplay: Data[] | undefined, indices: string[]}> =
             </defs>)}
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="lastUpdatedAtSource" minTickGap={28} tickFormatter={str => {
-            const date = parseISO(str); console.log("date", date);
+            const date = parseISO(str);
             if (Number.isNaN(date.getTime())) return "??/??";
             return format(date, "MMM/dd");
           }}/>
