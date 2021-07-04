@@ -91,7 +91,7 @@ const Chart = () => {
             }))
             
             setDataToDisplay(transformedData);
-            sliderStep.current = Math.floor(1/(data.length / Number(step))*100)/100;
+            sliderStep.current = Math.floor(1/(data.length / Number(step))*100)/100 || 0.5;
         }
 
     }, [data, indices, step, dispatch, sliderPosition, variable1, variable2, operator]);
