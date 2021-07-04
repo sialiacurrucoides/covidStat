@@ -13,7 +13,6 @@ const LineCh: React.FC<{
     return (
         <ResponsiveContainer width="100%" height="100%">
         <LineChart
-          width={500}
           height={300}
           data={dataToDisplay}
           margin={{

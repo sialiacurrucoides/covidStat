@@ -28,7 +28,7 @@ type DataState = {
 // Define the initial state 
 const initialState: DataState = {
   step: '14', // days
-  selectedChartType: 'area',
+  selectedChartType: 'biaxialLine',
   selectedIndices: [],
   sliderPosition: 1,
   summaryStat: {

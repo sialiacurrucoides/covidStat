@@ -10,6 +10,7 @@ export const covidIndices = new Set([
 export const lineColors = ["#BF1363", "#39A6A3","#000000", "#555555", "#2B807d", "#DEEEEA"];
 
 export const ChartTypes = [
+    {value: 'biaxialLine', label: 'Biaxial Line Chart'},
     {value: 'area', label: 'Area Chart'},
     {value: 'bar', label: 'Bar Chart'},
     {value: 'line', label: 'Line Chart'},

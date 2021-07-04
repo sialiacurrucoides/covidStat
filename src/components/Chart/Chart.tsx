@@ -8,6 +8,7 @@ import LineCh from './Line/Linear';
 import AreaCh from './Area/AreaChart';
 import BarCh from './Bar/BarChart';
 import ScatterPlot from './Scatter/ScatterPlot';
+import BiaxialLineCh from './BiaxialLine/BiaxialLine';
 import Spinner from '../UI/Spinner/Spinner';
 import DiscreteSlider from '../Slider/Slider';
 import calcCustomData from '../../utils/calcCustomData';
@@ -44,6 +45,9 @@ const Chart = () => {
     const CurrentChart: React.FC = () => {
         
         switch(chartType) { 
+            case 'biaxialLine': { 
+                return <BiaxialLineCh dataToDisplay={dataToDisplay} indices={indices} customName={customName}/>
+             } 
             case 'area': { 
                return <AreaCh dataToDisplay={dataToDisplay} indices={indices} customName={customName}/>
             } 
@@ -57,7 +61,7 @@ const Chart = () => {
                 return <ScatterPlot dataToDisplay={dataToDisplay} indices={indices} customName={customName}/>
              } 
             default: { 
-                return <AreaCh dataToDisplay={dataToDisplay} indices={indices} customName={customName}/>
+                return <BiaxialLineCh dataToDisplay={dataToDisplay} indices={indices} customName={customName}/>
             } 
          } 
     };

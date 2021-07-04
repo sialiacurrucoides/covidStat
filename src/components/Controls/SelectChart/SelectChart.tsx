@@ -7,7 +7,7 @@ import { ChartTypes } from '../../../constants/constants';
 
 
 const SelectChart: React.FC = () => {
-    const [chartType, setChartType] = useState('area');
+    const [chartType, setChartType] = useState(ChartTypes[0].value);
     const dispatch = useAppDispatch();
     const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
       setChartType(event.target.value as string);
