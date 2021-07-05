@@ -7,7 +7,7 @@ const useStyles = makeStyles({
     root: {
       width: '100%',
       paddingLeft: '1rem'
-    },
+    }
   });
   
   function valuetext(value: number) {
@@ -22,7 +22,7 @@ const DiscreteSlider: React.FC<{step: number}> = ({step}) => {
     const handleChange = (event: object, value: number | number[]) => {
       dispatch(setSliderPosition(Number(value)));
     };
-  
+    
     return (
       <div className={classes.root}>
         <Slider
@@ -35,7 +35,7 @@ const DiscreteSlider: React.FC<{step: number}> = ({step}) => {
           min={0}
           max={1}
           valueLabelDisplay="auto"
-          color='secondary'
+          style={{color: "#bf1363"}}
           onChange={handleChange}
         />
       </div>

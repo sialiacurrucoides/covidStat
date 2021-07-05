@@ -1,3 +1,5 @@
+@use '../../scss/variables';
+
 .container {
     width: 90vw;
     max-width: 1000px;
@@ -12,7 +14,7 @@
 
 }
 
-@media screen and (max-width: 1016px) {
+@media screen and (max-width: variables.$large) {
     .container {
         padding-left: 0.5rem;
     }
@@ -36,7 +38,7 @@
     z-index: -1;
 }
 
-@media screen and (max-width: 575px){
+@media screen and (max-width: variables.$small){
     .bigVirus {
         width: 90vw;
     }
@@ -50,7 +52,7 @@
     width: 100%;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: variables.$middle) {
     .displayData {
         flex-direction: column;
         justify-content: space-around;

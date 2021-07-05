@@ -1,10 +1,12 @@
+@use '../../scss/variables';
+
 .controls > *{
     margin: 1rem 0;
 }
 
 .realControls {
     border: 1px solid #c5c5c5;
-    border-radius: 8px;
+    border-radius: variables.$borderRadius;
     padding: 1rem;
     background: rgba(0,0,0,0.05);
     display: flex;
@@ -13,7 +15,7 @@
     align-items: flex-start;
 }
 
-@media screen and (max-width: 850px){
+@media screen and (max-width: variables.$middle){
     .realControls{
         width: 500px;
         flex-direction: row;
@@ -22,7 +24,7 @@
     }
 }
 
-@media screen and (max-width: 575px){
+@media screen and (max-width: variables.$small){
     .realControls{
         width: 80vw;
         flex-direction: column;

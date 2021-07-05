@@ -11,8 +11,9 @@
   font-size: 16px;
 }
 
-@media screen and (max-width: 575px){
+@media screen and (max-width: variables.$small){
   .App {
     font-size: 14px;
   }
 }
+

@@ -1,7 +1,7 @@
 @use '../../../scss/variables';
 
 @mixin selectButton {
-    border-radius: 8px;
+    border-radius: variables.$borderRadius;
     padding: 0.75rem 1rem;
     cursor: pointer;
     border: none;
