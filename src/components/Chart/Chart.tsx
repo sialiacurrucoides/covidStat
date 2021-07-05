@@ -10,7 +10,7 @@ import BarCh from './Bar/BarChart';
 import ScatterPlot from './Scatter/ScatterPlot';
 import BiaxialLineCh from './BiaxialLine/BiaxialLine';
 import Spinner from '../UI/Spinner/Spinner';
-import DiscreteSlider from '../Slider/Slider';
+import XAxisSliderControl from '../XAxisSliderControl/XAxisSliderControl';
 import calcCustomData from '../../utils/calcCustomData';
 
 export type Data = {
@@ -102,7 +102,7 @@ const Chart = () => {
             {isLoading && <div className={styles.spinnerContainer}><Spinner width={"40px"}/></div>}
             {!!dataToDisplay && dataToDisplay?.length > 0 && <div className={styles.chartAndSlider}>
                 { <CurrentChart />}
-                {<DiscreteSlider step={sliderStep.current}/>}
+                {<XAxisSliderControl step={sliderStep.current}/>}
             </div>}
             {!!error && "An error occured, please try again later."}
         </div>

@@ -1,7 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
 import Slider from '@material-ui/core/Slider';
-import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
-import { setSliderPosition } from '../../store/dataSlice';
 
 const useStyles = makeStyles({
     root: {
@@ -14,14 +12,11 @@ const useStyles = makeStyles({
     return `${value}`;
   }
   
-const DiscreteSlider: React.FC<{step: number}> = ({step}) => {
+const DiscreteSlider: React.FC<{step: number, 
+    sliderPosition: number,
+    handleChange: (event: object, value: number | number[]) => void 
+    }> = ({step, sliderPosition, handleChange}) => {
     const classes = useStyles();
-    const sliderPosition = useAppSelector(state => state.data.sliderPosition);
-    const dispatch = useAppDispatch();
-
-    const handleChange = (event: object, value: number | number[]) => {
-      dispatch(setSliderPosition(Number(value)));
-    };
     
     return (
       <div className={classes.root}>
