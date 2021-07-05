@@ -2,6 +2,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 import { format, parseISO } from 'date-fns';
 import type { Data } from '../Chart';
 import { lineColors } from '../../../constants/constants';
+import formatTooltip from '../../../utils/formatTooltip';
 
 const BiaxialLineCh: React.FC<{
   dataToDisplay: Data[] | undefined, 
@@ -30,7 +31,7 @@ const BiaxialLineCh: React.FC<{
           }}/>
           <YAxis yAxisId="left" />
           <YAxis yAxisId="right" orientation="right" />
-          <Tooltip />
+          <Tooltip labelFormatter={formatTooltip}/>
           <Line yAxisId="left" name={indices[0] === 'custom' ? customName : indices[0]} type="monotone" dataKey={indices[0]} stroke={lineColors[0]} />
           <Line yAxisId="right" name={indices[1] === 'custom' ? customName : indices[1]}  type="monotone" dataKey={indices[1]} stroke={lineColors[1]} />
           <Legend layout="horizontal" verticalAlign="top" align="center"/>

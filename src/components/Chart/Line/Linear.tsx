@@ -2,6 +2,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 import { format, parseISO } from 'date-fns';
 import type { Data } from '../Chart';
 import { lineColors } from '../../../constants/constants';
+import formatTooltip from '../../../utils/formatTooltip';
 
 const LineCh: React.FC<{
   dataToDisplay: Data[] | undefined, 
@@ -28,7 +29,7 @@ const LineCh: React.FC<{
             return format(date, "MMM/dd");
           }}/>
           <YAxis />
-          <Tooltip />
+          <Tooltip labelFormatter={formatTooltip}/>
           <Legend layout="horizontal" verticalAlign="top" align="center"/>
           {indices.map((index, inx) => <Line 
           type="monotone" 
