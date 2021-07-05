@@ -9,14 +9,5 @@ const formatTooltip = (label:string) => {
     }
 
 };
-// const formatTooltip = (value:number, name:string) => {
-//     try {
-//         const date = parseISO(name);
-//         return [value, format(date, "yyyy-MMM-dd")]
-//     } catch {
-//         return [value, name];
-//     }
-
-// };
 
 export default formatTooltip;
