@@ -23,7 +23,13 @@
     @include selectButton();
 }
 
-.selectButton:clicked {
+.selectButton:active, .activeSelectButton:active {
     border: 1px solid variables.$white;
+    opacity: 0.7;
+    box-shadow: 2px 2px 4px variables.$dark;
+}
+
+.selectButton:hover, .activeSelectButton:hover {
+    opacity: 0.85;
 }
 
