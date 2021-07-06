@@ -18,7 +18,7 @@ const CircularSpinner: React.FC<{size?:number, width?:string}> = ({size, width =
   const classes = useStyles();
 
   return (
-    <div className={classes.root} style={{width: width}}>
+    <div className={classes.root} style={{width: width}} aria-label="spinner">
       <CircularProgress color="secondary" size={size} />
     </div>
   );

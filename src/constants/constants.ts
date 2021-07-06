@@ -16,3 +16,5 @@ export const ChartTypes = [
     {value: 'line', label: 'Line Chart'},
     {value: 'scatter', label: 'Scatter plot (with 2 variables)'}
 ];
+
+export const twoVariableNeeded = "Exactly 2 variable (selected indicator) needed.";

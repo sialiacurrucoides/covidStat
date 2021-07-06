@@ -98,7 +98,7 @@ const Chart = () => {
 
 
     return (
-        <div className={styles.chartArea}>
+        <div className={styles.chartArea} aria-label="display chart">
             {isLoading && <div className={styles.spinnerContainer}><Spinner width={"40px"}/></div>}
             {!!dataToDisplay && dataToDisplay?.length > 0 && <div className={styles.chartAndSlider}>
                 { <CurrentChart />}

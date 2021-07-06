@@ -3,6 +3,7 @@ import { format, parseISO } from 'date-fns';
 import type { Data } from '../Chart';
 import { lineColors } from '../../../constants/constants';
 import formatTooltip from '../../../utils/formatTooltip';
+import { twoVariableNeeded } from '../../../constants/constants';
 
 const BiaxialLineCh: React.FC<{
   dataToDisplay: Data[] | undefined, 
@@ -10,7 +11,7 @@ const BiaxialLineCh: React.FC<{
   customName: string
 }> = ({dataToDisplay, indices, customName}) => {
     
-    if (indices.length !== 2) return <p>Exactly 2 variable (selected indicator) needed</p>;
+    if (indices.length !== 2) return <p>{twoVariableNeeded}</p>;
 
     return (
         <ResponsiveContainer width="100%" height="100%">
