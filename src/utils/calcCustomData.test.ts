@@ -11,7 +11,7 @@ const dataSlice = [{
     quarantined: 78,
     tested: 2345,
     sourceUrl: "source",
-    lastUpdatedAtApify: "date",
+    lastUpdatedAtSource: "date",
     readMe: "readMe"
 },
 {
@@ -22,7 +22,7 @@ const dataSlice = [{
     quarantined: 78,
     tested: 2345,
     sourceUrl: "source",
-    lastUpdatedAtApify: "date",
+    lastUpdatedAtSource: "date",
     readMe: "readMe"
 }
 ];
@@ -39,7 +39,7 @@ describe("calcCustomData", () => {
             quarantined: 78,
             tested: 2345,
             sourceUrl: "source",
-            lastUpdatedAtApify: "date",
+            lastUpdatedAtSource: "date",
             readMe: "readMe",
             custom: 0.1
         },
@@ -51,7 +51,7 @@ describe("calcCustomData", () => {
             quarantined: 78,
             tested: 2345,
             sourceUrl: "source",
-            lastUpdatedAtApify: "date",
+            lastUpdatedAtSource: "date",
             readMe: "readMe",
             custom: 0.2
         }];
@@ -69,7 +69,7 @@ describe("calcCustomData", () => {
             quarantined: 78,
             tested: 2345,
             sourceUrl: "source",
-            lastUpdatedAtApify: "date",
+            lastUpdatedAtSource: "date",
             readMe: "readMe",
             custom: -90
         },
@@ -81,7 +81,7 @@ describe("calcCustomData", () => {
             quarantined: 78,
             tested: 2345,
             sourceUrl: "source",
-            lastUpdatedAtApify: "date",
+            lastUpdatedAtSource: "date",
             readMe: "readMe",
             custom: -20
         }];

@@ -1,8 +1,8 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { format, parseISO } from 'date-fns';
 import type { Data } from '../Chart';
 import { lineColors } from '../../../constants/constants';
 import formatTooltip from '../../../utils/formatTooltip';
+import formatAxisDate from '../../../utils/formatAxisDate';
 
 const LineCh: React.FC<{
   dataToDisplay: Data[] | undefined, 
@@ -25,8 +25,7 @@ const LineCh: React.FC<{
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="lastUpdatedAtSource" minTickGap={28} tickFormatter={str => {
-            const date = parseISO(str);
-            return format(date, "MMM/dd");
+            return formatAxisDate(str);
           }}/>
           <YAxis />
           <Tooltip labelFormatter={formatTooltip}/>

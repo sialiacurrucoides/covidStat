@@ -21,7 +21,7 @@ export type Data = {
     quarantined: number,
     tested: number,
     sourceUrl: string,
-    lastUpdatedAtApify: string,
+    lastUpdatedAtSource: string,
     readMe: string,
     custom?: number,
     [key: string]: string | number | undefined
@@ -71,7 +71,7 @@ const Chart = () => {
             const from = Math.floor((data.length - Number(step) - 1)*sliderPosition);
             const dataSlice = data?.slice(from, from + Number(step) + 1);
 
-            const latest = dataSlice[dataSlice.length - 1];
+            const latest = data[data.length - 1];
             dispatch(setSummaryStat({
                 deceased: latest.deceased,
                 infected: latest.infected,
@@ -91,7 +91,7 @@ const Chart = () => {
             }))
             
             setDataToDisplay(transformedData);
-            sliderStep.current = Math.floor(1/(data.length / Number(step))*100)/100 || 0.5;
+            sliderStep.current = Math.floor(1/(data.length / Number(step))*100)/100 || 0.01;
         }
 
     }, [data, indices, step, dispatch, sliderPosition, variable1, variable2, operator]);

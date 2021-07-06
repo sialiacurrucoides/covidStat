@@ -70,7 +70,7 @@ const CustomSelection:React.FC<{onClose: () => void}> = ({onClose}) => {
                 handleChange={handleChangeVar2} 
                 options={options} 
                 minWidth={200}
-                title={"variable 2"}
+                title={"Variable 2"}
                 />
             <Button variant="contained" onClick={handleSubmit}>Show the derived index</Button>
             </div>

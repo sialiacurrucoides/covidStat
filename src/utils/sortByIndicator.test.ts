@@ -9,7 +9,7 @@ const mockData = [{
     quarantined: 78,
     tested: 2345,
     sourceUrl: "source",
-    lastUpdatedAtApify: "date",
+    lastUpdatedAtSource: "date",
     readMe: "readMe"
 },
 {
@@ -20,7 +20,7 @@ const mockData = [{
     quarantined: 78,
     tested: 2345,
     sourceUrl: "source",
-    lastUpdatedAtApify: "date",
+    lastUpdatedAtSource: "date",
     readMe: "readMe"
 }];
 
@@ -36,7 +36,7 @@ describe('sortByIndicator', () => {
                 quarantined: 78,
                 tested: 2345,
                 sourceUrl: "source",
-                lastUpdatedAtApify: "date",
+                lastUpdatedAtSource: "date",
                 readMe: "readMe"
             },
             {
@@ -47,7 +47,7 @@ describe('sortByIndicator', () => {
             quarantined: 78,
             tested: 2345,
             sourceUrl: "source",
-            lastUpdatedAtApify: "date",
+            lastUpdatedAtSource: "date",
             readMe: "readMe"
         }];
 
