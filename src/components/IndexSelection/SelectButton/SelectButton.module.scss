@@ -4,15 +4,15 @@
     border-radius: variables.$borderRadius;
     padding: 0.75rem 1rem;
     cursor: pointer;
-    border: none;
     text-transform: uppercase;
     font-weight: 500;
     font-size: 1rem;
 }
 
 .selectButton {
-    background-color: variables.$primary;
-    color: variables.$white;
+    border: 1px solid variables.$primary;
+    background-color: #fff;
+    color: variables.$primary;
     @include selectButton();
 }
 
@@ -20,6 +20,7 @@
     background-color: variables.$primary-dark;
     color: variables.$light;
     box-shadow: 1px 1px 4px variables.$gray;
+    border: none;
     @include selectButton();
 }
 

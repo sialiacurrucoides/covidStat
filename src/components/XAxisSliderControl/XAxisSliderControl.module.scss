@@ -1,0 +1,19 @@
+@use '../../scss/variables';
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+}
+
+.endPoints {
+    color: variables.$secondary;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 98%;
+    margin: auto;
+    margin-bottom: 1rem;
+}

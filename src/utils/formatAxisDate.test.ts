@@ -10,7 +10,7 @@ describe('dateFormatter', () => {
 
     test('returns original to invalid date', () => {
         const actual = formatAxisDate("Date is invalid");
-        const expected = '??/??';
+        const expected = 'ND';
 
         expect(actual).toStrictEqual(expected);
     });

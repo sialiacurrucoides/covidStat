@@ -37,6 +37,17 @@ const Chart = () => {
     const { variable1, variable2, operator } = useAppSelector(state => state.data.custom);
     const dispatch = useAppDispatch();
     const sliderStep = useRef(0.5);
+    const startDate = useMemo(() => {
+        if (!!data && data.length > 0 && typeof data[0].lastUpdatedAtSource === 'string'){
+            return data[0]?.lastUpdatedAtApify?.toString();
+        }
+        return 'First date';
+    }, [data]);
+    const endDate = useMemo(() => {
+        if (!!data && data.length > 0 && typeof data[0].lastUpdatedAtSource === 'string'){
+        return data[data.length - 1]?.lastUpdatedAtApify?.toString();}
+        return 'Last date';
+    }, [data]);
     const customName = useMemo(() => {
         return `${variable1} ${operator} ${variable2}`
     }, [variable1, variable2, operator])
@@ -102,7 +113,10 @@ const Chart = () => {
             {isLoading && <div className={styles.spinnerContainer}><Spinner width={"40px"}/></div>}
             {!!dataToDisplay && dataToDisplay?.length > 0 && <div className={styles.chartAndSlider}>
                 { <CurrentChart />}
-                {<XAxisSliderControl step={sliderStep.current}/>}
+                {<XAxisSliderControl 
+                step={sliderStep.current} 
+                start={startDate} 
+                end={endDate}/>}
             </div>}
             {!!error && "An error occured, please try again later."}
         </div>

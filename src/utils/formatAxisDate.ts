@@ -5,7 +5,7 @@ const formatAxisDate = (label:string) => {
         const date = parseISO(label);
         return format(date, "MMM/dd");
     } catch {
-        return "??/??";
+        return "ND";
     }
 
 };

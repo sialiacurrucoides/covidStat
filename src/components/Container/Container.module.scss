@@ -52,7 +52,7 @@
     width: 100%;
 }
 
-@media screen and (max-width: variables.$middle) {
+@media screen and (max-width: variables.$large) {
     .displayData {
         flex-direction: column;
         justify-content: space-around;

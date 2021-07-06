@@ -8,7 +8,7 @@ const SetStep: React.FC = () => {
 
     return (
         <div>
-            <span>Step size (x-axis): </span>
+            <span>Data range (x-axis): </span>
             <Input
                 className={styles.input}
                 id="standard-basic"
