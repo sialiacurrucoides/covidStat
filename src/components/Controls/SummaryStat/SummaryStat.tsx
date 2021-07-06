@@ -7,7 +7,7 @@ const SummaryStat: React.FC = () => {
     const summary = useAppSelector(state => state.data.summaryStat);
 
     return (
-        <div className={styles.summary}>
+        <div className={styles.summary} aria-label="summary statistics container">
             <p>Latest cummulative data:</p>
             <ul>
                 <li>Deceased: <span>{summary.deceased || <Spinner size={16} width={"16px"}/>}</span></li>

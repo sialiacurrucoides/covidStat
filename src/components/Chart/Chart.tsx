@@ -71,7 +71,7 @@ const Chart = () => {
             const from = Math.floor((data.length - Number(step) - 1)*sliderPosition);
             const dataSlice = data?.slice(from, from + Number(step) + 1);
 
-            const latest = dataSlice[0];
+            const latest = dataSlice[dataSlice.length - 1];
             dispatch(setSummaryStat({
                 deceased: latest.deceased,
                 infected: latest.infected,
