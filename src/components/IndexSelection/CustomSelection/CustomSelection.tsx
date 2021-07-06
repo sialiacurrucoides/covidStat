@@ -48,8 +48,9 @@ const CustomSelection:React.FC<{onClose: () => void}> = ({onClose}) => {
 
 
     return (
-        <Modal onClose={onClose}>
-            <div className={styles.formContainer}>
+        <Modal onClose={onClose} >
+            <div className={styles.formContainer} aria-label="modal content">
+            <h3 className={styles.instruction}>Select variables and an operation to create a new indicator</h3>
             <SelectInput
                 value={variable1}
                 handleChange={handleChangeVar1} 

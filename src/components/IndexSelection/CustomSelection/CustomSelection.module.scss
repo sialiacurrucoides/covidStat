@@ -3,5 +3,14 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    min-height: 400px;
+    min-height: 420px;
+}
+
+.instruction {
+    text-align: center;
+    padding: 0.25rem 2rem;
+    line-height: 1.5;
+    margin: 0;
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
 }

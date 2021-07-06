@@ -13,7 +13,7 @@ $modalWidth: 280px;
   
   .modal {
     position: fixed;
-    top: 20vh;
+    top: 16vh;
     left: calc(50vw - #{$modalWidth}/2);
     width: $modalWidth;
     background-color: white;
