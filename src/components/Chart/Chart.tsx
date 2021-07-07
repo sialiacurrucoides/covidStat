@@ -38,20 +38,20 @@ const Chart = () => {
     const dispatch = useAppDispatch();
     const sliderStep = useRef(0.5);
     const startDate = useMemo(() => {
-        if (!!data && data.length > 0 && typeof data[0].lastUpdatedAtSource === 'string'){
+        if (!!data && data.length > 0){
             return data[0]?.lastUpdatedAtApify?.toString();
         }
         return 'First date';
     }, [data]);
     const endDate = useMemo(() => {
-        if (!!data && data.length > 0 && typeof data[0].lastUpdatedAtSource === 'string'){
+        if (!!data && data.length > 0){
         return data[data.length - 1]?.lastUpdatedAtApify?.toString();}
         return 'Last date';
     }, [data]);
     const customName = useMemo(() => {
         return `${variable1} ${operator} ${variable2}`
     }, [variable1, variable2, operator])
-
+    console.log("first date", startDate, "last date", endDate);
 
     const CurrentChart: React.FC = () => {
         

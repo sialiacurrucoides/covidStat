@@ -2,6 +2,7 @@ import SliderComponent from "../UI/Slider/SliderComponent";
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
 import { setSliderPosition } from '../../store/dataSlice';
 import styles from './XAxisSliderControl.module.scss';
+import formatDate from '../../utils/formatDate';
   
 const XAxisSliderControl: React.FC<{step: number, start: string | undefined, end: string | undefined}> = ({step, start, end}) => {
     const sliderPosition = useAppSelector(state => state.data.sliderPosition);
@@ -19,8 +20,8 @@ const XAxisSliderControl: React.FC<{step: number, start: string | undefined, end
       handleChange={handleChange}
       />
       <div className={styles.endPoints}>
-        <span>{start}</span>
-        <span>{end}</span>
+        <span aria-label="first date">{formatDate(start, "yyyy/MMM")}</span>
+        <span aria-label="last date">{formatDate(end, "yyyy/MMM")}</span>
       </div>
       </div>
     );
