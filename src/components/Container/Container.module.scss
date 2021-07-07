@@ -11,7 +11,6 @@
     justify-content: space-around;
     align-items: center;
     text-align: left;
-
 }
 
 @media screen and (max-width: variables.$large) {
@@ -57,5 +56,18 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+    }
+}
+
+@media screen and (min-width: variables.$large) and (min-height: 880px) {
+    .container {
+        min-height: 800px;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .container {
+        max-width: 1200px;
+        padding-top: 4rem;
     }
 }

@@ -15,7 +15,7 @@
     align-items: flex-start;
 }
 
-@media screen and (max-width: variables.$middle){
+@media screen and (max-width: variables.$large){
     .realControls{
         width: 500px;
         flex-direction: row;
@@ -30,5 +30,14 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: flex-start;
+    }
+}
+
+@media screen and (min-width: 1300px){
+    .realControls{
+        width: 496px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
     }
 }
