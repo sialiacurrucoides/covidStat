@@ -3,6 +3,7 @@ import type { Data } from '../Chart';
 import { lineColors } from '../../../constants/constants';
 import sortByIndicator from '../../../utils/sortByIndicator';
 import { twoVariableNeeded } from '../../../constants/constants';
+import styles from '../Chart.module.scss';
 
 const ScatterPlot: React.FC<{
   dataToDisplay: Data[] | undefined, 
@@ -10,7 +11,7 @@ const ScatterPlot: React.FC<{
   customName: string
 }> = ({dataToDisplay, indices, customName}) => {
     
-    if (indices.length !== 2) return <p>{twoVariableNeeded}</p>;
+    if (indices.length !== 2) return <p className={styles.instruction}>{twoVariableNeeded}</p>;
 
     return (
         <ResponsiveContainer width="100%" height="100%">

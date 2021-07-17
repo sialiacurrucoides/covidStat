@@ -4,6 +4,7 @@ import { lineColors } from '../../../constants/constants';
 import formatTooltip from '../../../utils/formatTooltip';
 import { twoVariableNeeded } from '../../../constants/constants';
 import formatAxisDate from '../../../utils/formatAxisDate';
+import styles from '../Chart.module.scss';
 
 const BiaxialLineCh: React.FC<{
   dataToDisplay: Data[] | undefined, 
@@ -11,7 +12,7 @@ const BiaxialLineCh: React.FC<{
   customName: string
 }> = ({dataToDisplay, indices, customName}) => {
     
-    if (indices.length !== 2) return <p>{twoVariableNeeded}</p>;
+    if (indices.length !== 2) return <p className={styles.instruction}>{twoVariableNeeded}</p>;
 
     return (
         <ResponsiveContainer width="100%" height="100%">
